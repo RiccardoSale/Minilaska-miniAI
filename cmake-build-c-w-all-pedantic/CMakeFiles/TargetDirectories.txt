@@ -1,0 +1,3 @@
+/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-c-w-all-pedantic/CMakeFiles/rebuild_cache.dir
+/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-c-w-all-pedantic/CMakeFiles/edit_cache.dir
+/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-c-w-all-pedantic/CMakeFiles/minilaska_diviso.dir
