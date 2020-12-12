@@ -1,2 +1,0 @@
-# minilaska_cpu
-

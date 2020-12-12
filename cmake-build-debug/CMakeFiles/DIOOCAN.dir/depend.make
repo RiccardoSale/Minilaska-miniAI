@@ -1,2 +1,2 @@
-# Empty dependencies file for minilaska_diviso.
+# Empty dependencies file for DIOOCAN.
 # This may be replaced when dependencies are built.

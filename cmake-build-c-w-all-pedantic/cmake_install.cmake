@@ -1,4 +1,4 @@
-# Install script for directory: /Users/rsh/Desktop/minilaska_diviso 3
+# Install script for directory: /Users/rsh/CLionProjects/minilaska_cpu_version2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-c-w-all-pedantic/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-c-w-all-pedantic/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

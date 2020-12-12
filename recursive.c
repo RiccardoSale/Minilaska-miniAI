@@ -4,16 +4,17 @@
 #include "recursive.h"
 #include "campo.h"
 #include "swap.h"
+#include "stdio.h"
+#include "vector.h"
 
-
-void f_ricorsiva(torre_t campo[7][7],char giocatore,int valore,int depth ,int x ,int y,int x1,int y1,int *global,int * counter, int sp) {
+void f_ricorsiva(torre_t campo[7][7],char giocatore,int valore,int depth ,int x ,int y,int x1,int y1,  vector_t * vector,int * counter, int sp) {
     int size=0;
     int *arr;
     int i;
     int j;
     torre_t temporaneo[7][7];
     if(depth==0) {
-        global[*counter] = valore;
+        v_push_back(vector,valore);
         (*counter)++;
         return;
     }//qui aggiungo somma del ramo all array
@@ -33,14 +34,14 @@ void f_ricorsiva(torre_t campo[7][7],char giocatore,int valore,int depth ,int x 
         for(i=0;i<size;i+=4){
             valore-=find_score(campo,arr[i],arr[i+2],arr[i+1],arr[i+3]);
             swap_player(&giocatore);
-            f_ricorsiva(campo,giocatore,valore,depth-1,arr[i],arr[i+1],arr[i+2],arr[i+3],global,counter,sp);
+            f_ricorsiva(campo,giocatore,valore,depth-1,arr[i],arr[i+1],arr[i+2],arr[i+3],vector,counter,sp);
             campo=temporaneo;
         }
     }else{
         for(i=0;i<size;i+=4){
             valore+=find_score(campo,arr[i],arr[i+2],arr[i+1],arr[i+3]);
             swap_player(&giocatore);
-            f_ricorsiva(campo,giocatore,valore,depth-1,arr[i],arr[i+1],arr[i+2],arr[i+3],global,counter,sp);
+            f_ricorsiva(campo,giocatore,valore,depth-1,arr[i],arr[i+1],arr[i+2],arr[i+3],vector,counter,sp);
             campo=temporaneo;
         }
     }

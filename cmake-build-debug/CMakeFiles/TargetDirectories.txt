@@ -1,3 +1,3 @@
-/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/rsh/Desktop/minilaska_diviso 3/cmake-build-debug/CMakeFiles/minilaska_diviso.dir
+/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/DIOOCAN.dir

@@ -178,8 +178,8 @@ int *moves(torre_t campo[7][7], char giocatore, int *size ,int * type_moves) {
     int i;
     int j;
     int dim = 0;
-    int status = 0;
-    int counter = 0;
+    int status;
+    int counter =0;
     int *p_obbligo;
     //controllo prima le mosse obbligatorie salti da 2
     for (i = 0; i <7; i++) { //verifico una prima volta quante mosse obbligatorie ho per poter stabilire la dimensione giusta della malloc

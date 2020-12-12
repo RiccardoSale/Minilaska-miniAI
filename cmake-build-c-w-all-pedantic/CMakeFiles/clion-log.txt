@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -Wall -pedantic -G "CodeBlocks - Unix Makefiles" "/Users/rsh/Desktop/minilaska_diviso 3"
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -Wall -pedantic -G "CodeBlocks - Unix Makefiles" /Users/rsh/CLionProjects/minilaska_cpu_version2
 -- The C compiler identification is AppleClang 11.0.0.11000033
 -- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
 -- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - works
@@ -8,4 +8,4 @@
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/rsh/Desktop/minilaska_diviso 3/cmake-build-c-w-all-pedantic
+-- Build files have been written to: /Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-c-w-all-pedantic

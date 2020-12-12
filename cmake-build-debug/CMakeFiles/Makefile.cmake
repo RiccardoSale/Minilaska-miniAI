@@ -100,5 +100,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/minilaska_diviso.dir/DependInfo.cmake"
+  "CMakeFiles/DIOOCAN.dir/DependInfo.cmake"
   )

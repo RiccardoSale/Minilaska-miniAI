@@ -8,7 +8,7 @@
 #include "stdio.h"
 #include "swap.h"
 #include "recursive.h"
-
+#include "vector.h"
 
 void game_setup(char *p1, char *p2, torre_t campo[7][7]) {
     printf("Benvenuto alla versione figa di MiniLaska!!!!\n\n");
@@ -141,9 +141,9 @@ void game_engine(torre_t campo[7][7], char* p1, char* p2) {
     int ia_moves[4]={0};
     int xy[4] = {0};
     int coord;
-    int * global= malloc(1000*sizeof(int));
+    vector_t * vector;
     int counterglobal=0;
-    torre_t * temporaneo = malloc(49*sizeof(torre_t));
+    torre_t tmp_campo[7][7]={};
     do {
             arr=moves(campo,player,&dim,&sp);
             if(sp==-1){
@@ -173,32 +173,32 @@ void game_engine(torre_t campo[7][7], char* p1, char* p2) {
             if(dim_tmp==4){
                 swap(arr_tmp[0],arr_tmp[1],arr_tmp[2],arr_tmp[3],campo,sp_tmp);
             }else {
+                vector=v_create();
                 for (i = 0; i < 7; i++) {
                     for (j = 0; j < 7; j++) {
-                        temporaneo[i * 7 + j] = campo[i][j];
+                        tmp_campo[i][j] = campo[i][j];
                     }
                 }
                 for (i = 0; i < dim_tmp; i += 4) {
-                    valore = find_score(temporaneo, arr_tmp[i], arr_tmp[i + 2], arr_tmp[i + 1], arr_tmp[i + 3]);
-                    f_ricorsiva(temporaneo, '1', valore, 4, arr_tmp[i], arr_tmp[i + 1], arr_tmp[i + 2], arr_tmp[i + 3],
-                                global, &counterglobal, sp_tmp);
-                    if (i == 0) valore_max = global[0];
+                    valore = find_score( tmp_campo, arr_tmp[i], arr_tmp[i + 2], arr_tmp[i + 1], arr_tmp[i + 3]);
+                    f_ricorsiva( tmp_campo, '1', valore, 8, arr_tmp[i], arr_tmp[i + 1], arr_tmp[i + 2], arr_tmp[i + 3],
+                                vector, &counterglobal, sp_tmp);
+                    if(counterglobal>0) {
+                        if (i == 0) valore_max = v_get(vector, 0);
+                    }
                     for (k = 0; k < counterglobal; ++k) {
-                        if (valore_max < global[k]) {
-                            valore_max = global[k];
+                        if (valore_max < v_get(vector, k)) {
+                            valore_max = v_get(vector, k);
                             ia_moves[0] = arr_tmp[i];    //x
                             ia_moves[1] = arr_tmp[i + 1];  //y
                             ia_moves[2] = arr_tmp[i + 2];  //x1
                             ia_moves[3] = arr_tmp[i + 3];  //y1
                         }
                     }
-                    memset(global, 0, sizeof(int) * 1000);
                     counterglobal = 0;
-                    //troviamo il max dell'array, se il max è > del massimo assoluto salviamo la coordinata
-                    //reset array counter=0;
                 }
                 for (i = 0; i < 4; ++i) {
-                    printf("Mossa arr_tmp  ghcghcghcghcghcggch%d\n", arr_tmp[i]);
+                    printf("Mossa arr_tmp %d\n", arr_tmp[i]);
                 }
                 printf("\n");
                 //Stampa mosse CPU
@@ -207,17 +207,17 @@ void game_engine(torre_t campo[7][7], char* p1, char* p2) {
                 }
                 printf("QUESTA E' SP_TMP %d\n", sp_tmp);
                 swap(ia_moves[0],ia_moves[1],ia_moves[2],ia_moves[3],campo,sp_tmp);
-                memset(temporaneo,0,sizeof(torre_t)*49);
+                //v_print(vector);
+                v_free(vector);
             }
             print_board(campo);
-            free(arr_tmp);
-
+            if(sp_tmp!=-1)
+                free(arr_tmp);
             if(sp!=-1)
                free(arr);
-            //sp=0;
         }while ((sp)!=-1);
-        free(global);
-        free(temporaneo);
+        printf("USCITO");
+        //free(temporaneo);
 }
 
 /*
