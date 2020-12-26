@@ -1,3 +1,0 @@
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-debug/CMakeFiles/DIOOCAN.dir

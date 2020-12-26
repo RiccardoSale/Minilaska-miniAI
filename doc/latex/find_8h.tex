@@ -1,0 +1,219 @@
+\hypertarget{find_8h}{}\doxysection{Riferimenti per il file find.\+h}
+\label{find_8h}\index{find.h@{find.h}}
+
+
+Funzioni inerenti alla ricerca di particolari informazioni.~\newline
+.  
+
+
+\doxysubsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{find_8h_a9c25bdc8828876cc9708afceb1a384a7}{find\+\_\+player}} (int x, int y, \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\item 
+int \mbox{\hyperlink{find_8h_a49423f707447bf06b42323d4a031cb0b}{find\+\_\+t\+\_\+height}} (int x, int y, \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\item 
+int \mbox{\hyperlink{find_8h_aab9700a3445751f2e33e1189875b5171}{find\+\_\+t\+\_\+strenght}} (int x, int y, \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\item 
+void \mbox{\hyperlink{find_8h_a7cbadc6d5caeaa2fcb3e9e7536aab107}{find\+\_\+t\+\_\+enemy\+\_\+composition}} (int x, int y, int $\ast$amiche, int $\ast$nemiche, \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\item 
+void \mbox{\hyperlink{find_8h_a997a0cc1c26df978ca42a734725c7e9a}{find\+\_\+mid}} (int $\ast$xmid, int $\ast$ymid, int x, int y, int x1, int y1)
+\item 
+int \mbox{\hyperlink{find_8h_a191c87c1325bb74ca594db97ee9ec69b}{find\+\_\+enhanced}} (int x, int y, \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\item 
+int \mbox{\hyperlink{find_8h_afbfb99458ae6103d5f5607e4d5b39a7a}{find\+\_\+score}} (\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, int x, int y, int x1, int y1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrizione dettagliata}
+Funzioni inerenti alla ricerca di particolari informazioni, le informazioni sono legate a una singola torre. 
+
+\doxysubsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{find_8h_a191c87c1325bb74ca594db97ee9ec69b}\label{find_8h_a191c87c1325bb74ca594db97ee9ec69b}} 
+\index{find.h@{find.h}!find\_enhanced@{find\_enhanced}}
+\index{find\_enhanced@{find\_enhanced}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_enhanced()}{find\_enhanced()}}
+{\footnotesize\ttfamily int find\+\_\+enhanced (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+Trova se la pedina è un soldato o un ufficiale.\+http\+://www.lasca.\+org/
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em x} & Coordinata x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coordinata y \\
+\hline
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+Restituisce se la pedina è potenziata o meno un valore di tipo int. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valori di ritorno}
+{\em 0} & Soldato \\
+\hline
+{\em 1} & Ufficiale \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{find_8h_a997a0cc1c26df978ca42a734725c7e9a}\label{find_8h_a997a0cc1c26df978ca42a734725c7e9a}} 
+\index{find.h@{find.h}!find\_mid@{find\_mid}}
+\index{find\_mid@{find\_mid}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_mid()}{find\_mid()}}
+{\footnotesize\ttfamily void find\+\_\+mid (\begin{DoxyParamCaption}\item[{int $\ast$}]{xmid,  }\item[{int $\ast$}]{ymid,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{x1,  }\item[{int}]{y1 }\end{DoxyParamCaption})}
+
+Date le coordinate di due pedine che corrispondono agli estremi della diagonale genera le coordinate della pedina centrale.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in,out}}  & {\em xmid} & Coord x della pedina centrale trovata \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em ymid} & Coord y della pedina centrale trovata \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Coord x della pedina 1 data in input \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coord y della pedina 1 data in input \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & Coord x della pedina 2 data in input \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Coord y della pedina 2 data in input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{find_8h_a9c25bdc8828876cc9708afceb1a384a7}\label{find_8h_a9c25bdc8828876cc9708afceb1a384a7}} 
+\index{find.h@{find.h}!find\_player@{find\_player}}
+\index{find\_player@{find\_player}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_player()}{find\_player()}}
+{\footnotesize\ttfamily char find\+\_\+player (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+Trova il giocatore che possiede la torre di pedine nella posizione del campo indicata dai parametri x e y.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em x} & Coordinata x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coordinata y \\
+\hline
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+Giocatore trovato
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valori di ritorno}
+{\em \textquotesingle{}1\textquotesingle{}} & Giocatore 1 \\
+\hline
+{\em \textquotesingle{}2\textquotesingle{}} & Giocatore 2 \\
+\hline
+{\em \textquotesingle{}cancelletto\textquotesingle{}} & Casella vuota \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{find_8h_afbfb99458ae6103d5f5607e4d5b39a7a}\label{find_8h_afbfb99458ae6103d5f5607e4d5b39a7a}} 
+\index{find.h@{find.h}!find\_score@{find\_score}}
+\index{find\_score@{find\_score}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_score()}{find\_score()}}
+{\footnotesize\ttfamily int find\+\_\+score (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{x1,  }\item[{int}]{y1 }\end{DoxyParamCaption})}
+
+Determina il punteggio di una mossa. \begin{DoxyNote}{Nota}
+Il punteggio della mossa è calcolato in base alla strategia implementata.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Coord x inziale \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coord y iniziale \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & Coord x1 finale \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Coord y1 finale\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+Restituisce il punteggio calcolato. 
+
+Sono possibili 29 differenti punteggi. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{find_8h_a7cbadc6d5caeaa2fcb3e9e7536aab107}\label{find_8h_a7cbadc6d5caeaa2fcb3e9e7536aab107}} 
+\index{find.h@{find.h}!find\_t\_enemy\_composition@{find\_t\_enemy\_composition}}
+\index{find\_t\_enemy\_composition@{find\_t\_enemy\_composition}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_t\_enemy\_composition()}{find\_t\_enemy\_composition()}}
+{\footnotesize\ttfamily void find\+\_\+t\+\_\+enemy\+\_\+composition (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int $\ast$}]{amiche,  }\item[{int $\ast$}]{nemiche,  }\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+Trova da quante pedine la torre del nemico è formata.(dividendo in pedine nemiche ed amiche) \begin{DoxyNote}{Nota}
+nemiche=pedine del possessore della torre.~\newline
+ 
+
+amiche=pedine non appartenenti al possessore della torre.~\newline
+ 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em x} & Coordinata x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coordinata y \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em amiche} & Numero di pedine amiche trovate \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em nemiche} & Numero di pedine nemiche trovate \\
+\hline
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco / \mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{find_8h_a49423f707447bf06b42323d4a031cb0b}\label{find_8h_a49423f707447bf06b42323d4a031cb0b}} 
+\index{find.h@{find.h}!find\_t\_height@{find\_t\_height}}
+\index{find\_t\_height@{find\_t\_height}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_t\_height()}{find\_t\_height()}}
+{\footnotesize\ttfamily int find\+\_\+t\+\_\+height (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+Trova l\textquotesingle{}altezza della torre.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em x} & Coordinata x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coordinata y \\
+\hline
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+Altezza torre
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valori di ritorno}
+{\em \textquotesingle{}0\textquotesingle{}} & Altezza 1 \\
+\hline
+{\em \textquotesingle{}1\textquotesingle{}} & Altezza 2 \\
+\hline
+{\em \textquotesingle{}2\textquotesingle{}} & Altezza 3 \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{find_8h_aab9700a3445751f2e33e1189875b5171}\label{find_8h_aab9700a3445751f2e33e1189875b5171}} 
+\index{find.h@{find.h}!find\_t\_strenght@{find\_t\_strenght}}
+\index{find\_t\_strenght@{find\_t\_strenght}!find.h@{find.h}}
+\doxysubsubsection{\texorpdfstring{find\_t\_strenght()}{find\_t\_strenght()}}
+{\footnotesize\ttfamily int find\+\_\+t\+\_\+strenght (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+Trova se la torre è debole o forte.(concetto di gioco di laska -\/$>$ \href{http://www.lasca.org/}{\texttt{ http\+://www.\+lasca.\+org/}})
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em x} & Coordinata x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Coordinata y \\
+\hline
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+Valore integer che identifica se la torre è forte o debole.
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valori di ritorno}
+{\em \textquotesingle{}0\textquotesingle{}} & Torre debole \\
+\hline
+{\em \textquotesingle{}1\textquotesingle{}} & Torre forte \textbackslash{}reterr \textquotesingle{}-\/1\textquotesingle{} Eventuale errore (non possibile) \\
+\hline
+\end{DoxyRetVals}

@@ -1,3 +1,0 @@
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-c-w-all-pedantic/CMakeFiles/rebuild_cache.dir
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-c-w-all-pedantic/CMakeFiles/edit_cache.dir
-/Users/rsh/CLionProjects/minilaska_cpu_version2/cmake-build-c-w-all-pedantic/CMakeFiles/DIOOCAN.dir

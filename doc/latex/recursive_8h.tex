@@ -1,0 +1,48 @@
+\hypertarget{recursive_8h}{}\doxysection{Riferimenti per il file recursive.\+h}
+\label{recursive_8h}\index{recursive.h@{recursive.h}}
+
+
+Funzione ricorsiva che si occupa della valutazione del punteggio dei singoli rami.  
+
+
+\doxysubsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{recursive_8h_ad6603454fd1aea621d6c2142e24498c6}{f\+\_\+ricorsiva}} (\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, char player, int value, int depth, int x, int y, int x1, int y1, \mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$\mbox{\hyperlink{structvector}{vector}}, int $\ast$counter, int tp)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{recursive_8h_ad6603454fd1aea621d6c2142e24498c6}\label{recursive_8h_ad6603454fd1aea621d6c2142e24498c6}} 
+\index{recursive.h@{recursive.h}!f\_ricorsiva@{f\_ricorsiva}}
+\index{f\_ricorsiva@{f\_ricorsiva}!recursive.h@{recursive.h}}
+\doxysubsubsection{\texorpdfstring{f\_ricorsiva()}{f\_ricorsiva()}}
+{\footnotesize\ttfamily void f\+\_\+ricorsiva (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{board\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{char}]{player,  }\item[{int}]{value,  }\item[{int}]{depth,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{vector,  }\item[{int $\ast$}]{counter,  }\item[{int}]{tp }\end{DoxyParamCaption})}
+
+Trova il punteggio di ogni ramo generato dalla mossa passata alla funzione, salvandolo in un vettore.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em board} & Campo di gioco \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & Giocatore \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & Valore iniziale della prima mossa passata -\/$>$ diventa il punteggio del ramo. \\
+\hline
+\mbox{\texttt{ in}}  & {\em depth} & Profondità della mini-\/max custom \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & coord x iniziale (mossa) \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & coord y iniziale (mossa) \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & coord x1 finale (mossa) \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & coord y1 finale (mossa) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em vector} & Puntatore del vettore in cui andiamo ad inserire il punteggio di ogni ramo trovato \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em counter} & Numero di rami trovati \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em tp} & Tipo mossa da effettuare \\
+\hline
+\end{DoxyParams}

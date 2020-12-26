@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minilaska:  File sorgente board.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Minilaska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">board.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="board_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="struct_8h.html">struct.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="find_8h.html">find.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="structtorre__t.html">torre_t</a> <a class="code" href="board_8h.html#a637840cb56778e4b698ff9b6f70f095d">fill_board</a>(<a class="code" href="structtorre__t.html">torre_t</a> board[7][7]);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="board_8h.html#a7fc05503dc7af97fc6846c407ca2b468">print_board</a>(<a class="code" href="structtorre__t.html">torre_t</a> board[7][7]);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> *<a class="code" href="board_8h.html#a3dd393e5939dcdf1c6cedb9c4fcaff12">moves</a>(<a class="code" href="structtorre__t.html">torre_t</a> board[7][7], <span class="keywordtype">char</span> player, <span class="keywordtype">int</span> *size ,<span class="keywordtype">int</span> *type_moves);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="afind_8h_html"><div class="ttname"><a href="find_8h.html">find.h</a></div><div class="ttdoc">Funzioni inerenti alla ricerca di particolari informazioni. .</div></div>
+<div class="ttc" id="aboard_8h_html_a7fc05503dc7af97fc6846c407ca2b468"><div class="ttname"><a href="board_8h.html#a7fc05503dc7af97fc6846c407ca2b468">print_board</a></div><div class="ttdeci">void print_board(torre_t board[7][7])</div><div class="ttdef"><b>Definition:</b> board.c:88</div></div>
+<div class="ttc" id="aboard_8h_html_a3dd393e5939dcdf1c6cedb9c4fcaff12"><div class="ttname"><a href="board_8h.html#a3dd393e5939dcdf1c6cedb9c4fcaff12">moves</a></div><div class="ttdeci">int * moves(torre_t board[7][7], char player, int *size, int *type_moves)</div><div class="ttdef"><b>Definition:</b> board.c:164</div></div>
+<div class="ttc" id="aboard_8h_html_a637840cb56778e4b698ff9b6f70f095d"><div class="ttname"><a href="board_8h.html#a637840cb56778e4b698ff9b6f70f095d">fill_board</a></div><div class="ttdeci">torre_t fill_board(torre_t board[7][7])</div><div class="ttdef"><b>Definition:</b> board.c:39</div></div>
+<div class="ttc" id="astructtorre__t_html"><div class="ttname"><a href="structtorre__t.html">torre_t</a></div><div class="ttdoc">Struct della torre.</div><div class="ttdef"><b>Definition:</b> struct.h:25</div></div>
+<div class="ttc" id="astruct_8h_html"><div class="ttname"><a href="struct_8h.html">struct.h</a></div><div class="ttdoc">Struct inerenti alle componenti del gioco.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato Ven 18 Dic 2020 22:42:26 per Minilaska da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

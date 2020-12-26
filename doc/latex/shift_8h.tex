@@ -1,0 +1,55 @@
+\hypertarget{shift_8h}{}\doxysection{Riferimenti per il file shift.\+h}
+\label{shift_8h}\index{shift.h@{shift.h}}
+
+
+Funzioni che operano uno scambio.  
+
+
+\doxysubsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shift_8h_a599ae5645dac20960c4e63972b4f5b7b}{shift}} (\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}} campo\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, int x, int y, int x1, int y1, int tp)
+\item 
+void \mbox{\hyperlink{shift_8h_aff01c1885fdc538ef596fc4f529c3951}{shift\+\_\+player}} (char $\ast$player)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{shift_8h_a599ae5645dac20960c4e63972b4f5b7b}\label{shift_8h_a599ae5645dac20960c4e63972b4f5b7b}} 
+\index{shift.h@{shift.h}!shift@{shift}}
+\index{shift@{shift}!shift.h@{shift.h}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily void shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtorre__t}{torre\+\_\+t}}}]{campo\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{tp }\end{DoxyParamCaption})}
+
+Modifica il campo in base alle mosse date in input.~\newline
+ Se mossa tipo 1 -\/$>$ spostamento della pedina in una diagonale adiacente.~\newline
+ Se mossa tipo 2 -\/$>$ Mangiata.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in,out}}  & {\em board} & Campo di gioco \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & coord x iniziale \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & coord y iniziale \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & coord x1 finale \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & coord y1 finaòe \\
+\hline
+\mbox{\texttt{ in}}  & {\em tp} & valore 1 o 2 in base al tipo di mossa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shift_8h_aff01c1885fdc538ef596fc4f529c3951}\label{shift_8h_aff01c1885fdc538ef596fc4f529c3951}} 
+\index{shift.h@{shift.h}!shift\_player@{shift\_player}}
+\index{shift\_player@{shift\_player}!shift.h@{shift.h}}
+\doxysubsubsection{\texorpdfstring{shift\_player()}{shift\_player()}}
+{\footnotesize\ttfamily void shift\+\_\+player (\begin{DoxyParamCaption}\item[{char $\ast$}]{player }\end{DoxyParamCaption})}
+
+Scambia il giocatore attuale con quello \char`\"{}inattivo\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in,out}}  & {\em player} & Giocatore attuale / char pointer \\
+\hline
+\end{DoxyParams}

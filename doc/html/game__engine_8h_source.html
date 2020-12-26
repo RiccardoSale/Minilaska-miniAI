@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minilaska:  File sorgente game_engine.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Minilaska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">game_engine.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="game__engine_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MINILASKA_DIVISO_GAME_ENGINE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MINILASKA_DIVISO_GAME_ENGINE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*MINILASKA_DIVISO_GAME_ENGINE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="board_8h.html">board.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="find_8h.html">find.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game__engine_8h.html#a83ff270177f916daad4e615dfa43f98e">game_setup</a>(<span class="keywordtype">char</span> *p1, <span class="keywordtype">char</span> *p2, <a class="code" href="structtorre__t.html">torre_t</a> board[7][7]);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> <a class="code" href="game__engine_8h.html#ad57f9beb0b4682f68be2ab6dac7a8431">read_coord</a>(<span class="keywordtype">char</span> *in, <span class="keywordtype">int</span> *xy, <span class="keyword">const</span> <span class="keywordtype">int</span> *arr, <span class="keyword">const</span> <span class="keywordtype">int</span> *dim);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game__engine_8h.html#af707ffc3403ed8376508625ea1ea9ecb">print_move</a>(<span class="keywordtype">int</span> dim,<span class="keywordtype">int</span> *arr,<span class="keywordtype">char</span> player, <span class="keywordtype">char</span>* p1, <span class="keywordtype">char</span>*p2);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game__engine_8h.html#a5b611390f188c8d0e1718925d647cdc0">game_engine_cpu</a>(<a class="code" href="structtorre__t.html">torre_t</a> board[7][7], <span class="keywordtype">char</span>* p1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game__engine_8h.html#a7524e59bdde36b7605090aea4ded6c6a">game_engine_pvp</a>(<a class="code" href="structtorre__t.html">torre_t</a> board[7][7], <span class="keywordtype">char</span>* p1, <span class="keywordtype">char</span>* p2);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="afind_8h_html"><div class="ttname"><a href="find_8h.html">find.h</a></div><div class="ttdoc">Funzioni inerenti alla ricerca di particolari informazioni. .</div></div>
+<div class="ttc" id="agame__engine_8h_html_ad57f9beb0b4682f68be2ab6dac7a8431"><div class="ttname"><a href="game__engine_8h.html#ad57f9beb0b4682f68be2ab6dac7a8431">read_coord</a></div><div class="ttdeci">int read_coord(char *in, int *xy, const int *arr, const int *dim)</div><div class="ttdef"><b>Definition:</b> game_engine.c:63</div></div>
+<div class="ttc" id="agame__engine_8h_html_af707ffc3403ed8376508625ea1ea9ecb"><div class="ttname"><a href="game__engine_8h.html#af707ffc3403ed8376508625ea1ea9ecb">print_move</a></div><div class="ttdeci">void print_move(int dim, int *arr, char player, char *p1, char *p2)</div><div class="ttdef"><b>Definition:</b> game_engine.c:145</div></div>
+<div class="ttc" id="agame__engine_8h_html_a5b611390f188c8d0e1718925d647cdc0"><div class="ttname"><a href="game__engine_8h.html#a5b611390f188c8d0e1718925d647cdc0">game_engine_cpu</a></div><div class="ttdeci">void game_engine_cpu(torre_t board[7][7], char *p1)</div><div class="ttdef"><b>Definition:</b> game_engine.c:172</div></div>
+<div class="ttc" id="agame__engine_8h_html_a83ff270177f916daad4e615dfa43f98e"><div class="ttname"><a href="game__engine_8h.html#a83ff270177f916daad4e615dfa43f98e">game_setup</a></div><div class="ttdeci">void game_setup(char *p1, char *p2, torre_t board[7][7])</div><div class="ttdef"><b>Definition:</b> game_engine.c:16</div></div>
+<div class="ttc" id="aboard_8h_html"><div class="ttname"><a href="board_8h.html">board.h</a></div><div class="ttdoc">Funzioni che eseguono operazioni sul board di gioco. .</div></div>
+<div class="ttc" id="agame__engine_8h_html_a7524e59bdde36b7605090aea4ded6c6a"><div class="ttname"><a href="game__engine_8h.html#a7524e59bdde36b7605090aea4ded6c6a">game_engine_pvp</a></div><div class="ttdeci">void game_engine_pvp(torre_t board[7][7], char *p1, char *p2)</div><div class="ttdef"><b>Definition:</b> game_engine.c:264</div></div>
+<div class="ttc" id="astructtorre__t_html"><div class="ttname"><a href="structtorre__t.html">torre_t</a></div><div class="ttdoc">Struct della torre.</div><div class="ttdef"><b>Definition:</b> struct.h:25</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato Ven 18 Dic 2020 22:42:26 per Minilaska da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

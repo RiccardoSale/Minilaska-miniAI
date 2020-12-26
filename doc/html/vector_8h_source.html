@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minilaska:  File sorgente vector.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Minilaska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">vector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="vector_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _DVECTOR_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _DVECTOR_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;stdio.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">int</span> vdata_t;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvector.html">vector</a> <a class="code" href="structvector.html">vector_t</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structvector.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvector.html">vector</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvector.html#a854352f53b148adc24983a58a1866d66">   23</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="structvector.html#a854352f53b148adc24983a58a1866d66">size</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structvector.html#ad721fc6ca6a3d6ba3bc506576622aab0">   25</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="structvector.html#ad721fc6ca6a3d6ba3bc506576622aab0">capacity</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structvector.html#ad89dc4c7e17e98916a7b5b8d2b70559b">   27</a></span>&#160;    vdata_t *<a class="code" href="structvector.html#ad89dc4c7e17e98916a7b5b8d2b70559b">data</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="structvector.html">vector_t</a> *<a class="code" href="vector_8h.html#ad2d926a5122befb6198777319fe6465f">v_create</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vector_8h.html#aa5637b2280d1642d4a29da870ff10d59">v_free</a>(<a class="code" href="structvector.html">vector_t</a> *v);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vector_8h.html#a081d06297777a96486db42e1f79a39a6">_v_check_index</a>(<span class="keyword">const</span> <a class="code" href="structvector.html">vector_t</a>* v, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;vdata_t <a class="code" href="vector_8h.html#a5cd49bb91b664623f8c4e371ba3a09ef">v_get</a>(<span class="keyword">const</span> <a class="code" href="structvector.html">vector_t</a> *v, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vector_8h.html#a06a1d80bb958f8b8919073bfe9107fc4">_v_check_extend</a>(<a class="code" href="structvector.html">vector_t</a> *v);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vector_8h.html#a78f0d06551d639874d651c05bbdaf392">v_push_back</a>(<a class="code" href="structvector.html">vector_t</a> *v, vdata_t value);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="avector_8h_html_ad2d926a5122befb6198777319fe6465f"><div class="ttname"><a href="vector_8h.html#ad2d926a5122befb6198777319fe6465f">v_create</a></div><div class="ttdeci">vector_t * v_create()</div><div class="ttdef"><b>Definition:</b> vector.c:10</div></div>
+<div class="ttc" id="avector_8h_html_a081d06297777a96486db42e1f79a39a6"><div class="ttname"><a href="vector_8h.html#a081d06297777a96486db42e1f79a39a6">_v_check_index</a></div><div class="ttdeci">void _v_check_index(const vector_t *v, size_t index)</div><div class="ttdef"><b>Definition:</b> vector.c:22</div></div>
+<div class="ttc" id="avector_8h_html_a5cd49bb91b664623f8c4e371ba3a09ef"><div class="ttname"><a href="vector_8h.html#a5cd49bb91b664623f8c4e371ba3a09ef">v_get</a></div><div class="ttdeci">vdata_t v_get(const vector_t *v, size_t index)</div><div class="ttdef"><b>Definition:</b> vector.c:30</div></div>
+<div class="ttc" id="avector_8h_html_a78f0d06551d639874d651c05bbdaf392"><div class="ttname"><a href="vector_8h.html#a78f0d06551d639874d651c05bbdaf392">v_push_back</a></div><div class="ttdeci">void v_push_back(vector_t *v, vdata_t value)</div><div class="ttdef"><b>Definition:</b> vector.c:48</div></div>
+<div class="ttc" id="astructvector_html"><div class="ttname"><a href="structvector.html">vector</a></div><div class="ttdoc">Struct vector.</div><div class="ttdef"><b>Definition:</b> vector.h:21</div></div>
+<div class="ttc" id="astructvector_html_ad721fc6ca6a3d6ba3bc506576622aab0"><div class="ttname"><a href="structvector.html#ad721fc6ca6a3d6ba3bc506576622aab0">vector::capacity</a></div><div class="ttdeci">size_t capacity</div><div class="ttdef"><b>Definition:</b> vector.h:25</div></div>
+<div class="ttc" id="avector_8h_html_aa5637b2280d1642d4a29da870ff10d59"><div class="ttname"><a href="vector_8h.html#aa5637b2280d1642d4a29da870ff10d59">v_free</a></div><div class="ttdeci">void v_free(vector_t *v)</div><div class="ttdef"><b>Definition:</b> vector.c:53</div></div>
+<div class="ttc" id="avector_8h_html_a06a1d80bb958f8b8919073bfe9107fc4"><div class="ttname"><a href="vector_8h.html#a06a1d80bb958f8b8919073bfe9107fc4">_v_check_extend</a></div><div class="ttdeci">void _v_check_extend(vector_t *v)</div><div class="ttdef"><b>Definition:</b> vector.c:35</div></div>
+<div class="ttc" id="astructvector_html_ad89dc4c7e17e98916a7b5b8d2b70559b"><div class="ttname"><a href="structvector.html#ad89dc4c7e17e98916a7b5b8d2b70559b">vector::data</a></div><div class="ttdeci">vdata_t * data</div><div class="ttdef"><b>Definition:</b> vector.h:27</div></div>
+<div class="ttc" id="astructvector_html_a854352f53b148adc24983a58a1866d66"><div class="ttname"><a href="structvector.html#a854352f53b148adc24983a58a1866d66">vector::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> vector.h:23</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato Ven 18 Dic 2020 22:42:26 per Minilaska da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

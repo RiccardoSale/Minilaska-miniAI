@@ -1,0 +1,106 @@
+\hypertarget{vector_8h}{}\doxysection{Riferimenti per il file vector.\+h}
+\label{vector_8h}\index{vector.h@{vector.h}}
+
+
+Libreria che implementa un vettore nel linguaggio C.  
+
+
+\doxysubsection*{Strutture dati}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvector}{vector}}
+\begin{DoxyCompactList}\small\item\em Struct vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Ridefinizioni di tipo (typedef)}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_abade3c2d6d852e88bc888e11ba76a48e}\label{vector_8h_abade3c2d6d852e88bc888e11ba76a48e}} 
+typedef int {\bfseries vdata\+\_\+t}
+\item 
+\mbox{\Hypertarget{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}\label{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}} 
+typedef struct \mbox{\hyperlink{structvector}{vector}} {\bfseries vector\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$ \mbox{\hyperlink{vector_8h_ad2d926a5122befb6198777319fe6465f}{v\+\_\+create}} ()
+\item 
+void \mbox{\hyperlink{vector_8h_aa5637b2280d1642d4a29da870ff10d59}{v\+\_\+free}} (\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$v)
+\item 
+void \mbox{\hyperlink{vector_8h_a081d06297777a96486db42e1f79a39a6}{\+\_\+v\+\_\+check\+\_\+index}} (const \mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$v, size\+\_\+t index)
+\item 
+vdata\+\_\+t \mbox{\hyperlink{vector_8h_a5cd49bb91b664623f8c4e371ba3a09ef}{v\+\_\+get}} (const \mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$v, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{vector_8h_a06a1d80bb958f8b8919073bfe9107fc4}{\+\_\+v\+\_\+check\+\_\+extend}} (\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$v)
+\item 
+void \mbox{\hyperlink{vector_8h_a78f0d06551d639874d651c05bbdaf392}{v\+\_\+push\+\_\+back}} (\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$v, vdata\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{vector_8h_a06a1d80bb958f8b8919073bfe9107fc4}\label{vector_8h_a06a1d80bb958f8b8919073bfe9107fc4}} 
+\index{vector.h@{vector.h}!\_v\_check\_extend@{\_v\_check\_extend}}
+\index{\_v\_check\_extend@{\_v\_check\_extend}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{\_v\_check\_extend()}{\_v\_check\_extend()}}
+{\footnotesize\ttfamily void \+\_\+v\+\_\+check\+\_\+extend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+Controlla se la size è uguale alla capacity, in quel caso effettua una realloc andando ad aumentare la memoria disponibile,~\newline
+inoltre aggiorna il valore di capacity 
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em v} & Il vettore. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_a081d06297777a96486db42e1f79a39a6}\label{vector_8h_a081d06297777a96486db42e1f79a39a6}} 
+\index{vector.h@{vector.h}!\_v\_check\_index@{\_v\_check\_index}}
+\index{\_v\_check\_index@{\_v\_check\_index}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{\_v\_check\_index()}{\_v\_check\_index()}}
+{\footnotesize\ttfamily void \+\_\+v\+\_\+check\+\_\+index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{v,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Verifica che l\textquotesingle{}indice index sia minore di v-\/$>$ size. 
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em v} & Il vettore. \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & L\textquotesingle{}indice desiderato. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_ad2d926a5122befb6198777319fe6465f}\label{vector_8h_ad2d926a5122befb6198777319fe6465f}} 
+\index{vector.h@{vector.h}!v\_create@{v\_create}}
+\index{v\_create@{v\_create}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{v\_create()}{v\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvector}{vector\+\_\+t}}$\ast$ v\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Crea un nuovo vettore. \begin{DoxyNote}{Nota}
+Se la malloc da errore, andiamo in exit failure. 
+\end{DoxyNote}
+\mbox{\Hypertarget{vector_8h_aa5637b2280d1642d4a29da870ff10d59}\label{vector_8h_aa5637b2280d1642d4a29da870ff10d59}} 
+\index{vector.h@{vector.h}!v\_free@{v\_free}}
+\index{v\_free@{v\_free}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{v\_free()}{v\_free()}}
+{\footnotesize\ttfamily void v\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+Libera la memoria che era stata riservata al vettore. \mbox{\Hypertarget{vector_8h_a5cd49bb91b664623f8c4e371ba3a09ef}\label{vector_8h_a5cd49bb91b664623f8c4e371ba3a09ef}} 
+\index{vector.h@{vector.h}!v\_get@{v\_get}}
+\index{v\_get@{v\_get}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{v\_get()}{v\_get()}}
+{\footnotesize\ttfamily vdata\+\_\+t v\+\_\+get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{v,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Ritorna l\textquotesingle{}elemento nella posizione index.~\newline
+ Termina se l\textquotesingle{}indice è più grande di size. 
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em v} & Il vettore. \\
+\hline
+\mbox{\texttt{ in}}  & {\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_a78f0d06551d639874d651c05bbdaf392}\label{vector_8h_a78f0d06551d639874d651c05bbdaf392}} 
+\index{vector.h@{vector.h}!v\_push\_back@{v\_push\_back}}
+\index{v\_push\_back@{v\_push\_back}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{v\_push\_back()}{v\_push\_back()}}
+{\footnotesize\ttfamily void v\+\_\+push\+\_\+back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvector}{vector\+\_\+t}} $\ast$}]{v,  }\item[{vdata\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Inserisce value in coda al vettore. 
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{ in}}  & {\em v} & Il vettore. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & Il valore da inserire. \\
+\hline
+\end{DoxyParams}
