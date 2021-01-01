@@ -13,7 +13,6 @@
 */
 int main() {
     char p1[20], p2[20];
-    torre_t board[7][7];
-    game_setup(&p1[0], &p2[0], board);
+    game_setup(&p1[0], &p2[0]);
     return 0;
 }

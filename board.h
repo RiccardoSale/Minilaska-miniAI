@@ -14,7 +14,7 @@
  * \return          Restituisce il board inizializzato ai valori di base.(Scacchiera iniziale)
  *
  */
-torre_t fill_board(torre_t board[7][7]);
+void fill_board(torre_t board[7][7]);
 
 /**
  * \details     Esegue la stampa del board dato in input.

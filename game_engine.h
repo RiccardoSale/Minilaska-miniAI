@@ -18,7 +18,7 @@
  * \param[in,out]    p2             Nome del player_2
  * \param[in]        board[7][7]    Campo di gioco
  */
-void game_setup(char *p1, char *p2, torre_t board[7][7]);
+void game_setup(char *p1, char *p2);
 
 /**
  * \details    Lettura da tastiera delle coordinate relative alla mossa che si vuole effettuare.

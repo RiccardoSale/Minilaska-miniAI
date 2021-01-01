@@ -3,29 +3,44 @@
 #include "stdio.h"
 #include "shift.h"
 #include "recursive.h"
-#include "vector.h"
+#include "string.h"
+
+
 
 #ifdef _WIN32
+#include "windows.h"
+#define black
 #define CLEAR_SCREEN system("cls");
+#define SLEEP Sleep(
 #endif
 
 #if defined unix || defined __APPLE__ || defined linux
-#define CLEAR_SCREEN printf("\e[1;1H\e[2J");
+#include "unistd.h"
+#define CLEAR_SCREEN printf("\033[H\033[J");
+#define SLEEP sleep(
+#define black "\033[48;2;0;0;0m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 #endif
 
-void game_setup( char *p1, char *p2, torre_t board[7][7]) {
+void game_setup( char *p1, char *p2) {
     char mode='0';
+    torre_t board[7][7];
+    printf(black"\nBenvenuto alla versione figa di MiniLaska!!!!\n\n");
+    replay: /*Label di ritorno per eventuali seconde partite*/
     do {
         CLEAR_SCREEN;
-        if(mode!='0') printf("INSERISCI UN VALORE VALIDO!!!");
-        printf("\n\nBenvenuto alla versione figa di MiniLaska!!!!\n\n");
+        if(mode!='0') {
+            printf("INSERISCI UN VALORE VALIDO!!!\n");
+
+        }
         printf("Seleziona la modalita' di gioco:\n ");
         printf("1) Player Vs Player;\n ");
         printf("2) Player Vs CPU;\n ");
+        printf("3) Esci dal gioco;\n\n");
         printf("Inserisci il valore: ");
         scanf(" %s", &mode); /*Leggo la modalità di gioco*/
-        printf("\n\n");
-    } while (!(mode =='1' || mode =='2'));
+        printf("\n");
+    } while (!(mode =='1' || mode =='2' || mode =='3'));
 
     if (mode == '1'){
         /*Setup della partita Playern Vs Player*/
@@ -38,35 +53,40 @@ void game_setup( char *p1, char *p2, torre_t board[7][7]) {
         printf("Inserisci il nome del Player 2: ");
         scanf("%s", p2);
         printf("\n");
+        CLEAR_SCREEN;
         fill_board(board); /*Chiamata a fill_board per inizializzare board da gioco*/
         print_board(board); /*Chiamata a print_board per stampare board da gioco*/
         game_engine_pvp(board,&p1[0],&p2[0]); /*Chiamata a game_engine_pvp passando il board appena inizializzato ed i nick dei player letti in input*/
-
+        mode='0';
+        goto replay;
     }
 
     if (mode == '2'){
-
-        printf("2c\n");
-        printf("\n");
         /*Lettura nick player 1 da char*, per leggere input continuo*/
+        printf("\n");
         printf("Inserisci il nome del Player 1: ");
         scanf("%s", p1);
         printf("\n");
+        CLEAR_SCREEN;
         fill_board(board); /*Chiamata a fill_board per inizializzare board da gioco*/
         print_board(board); /*Chiamata a print_board per stampare board da gioco*/
         game_engine_cpu(board,&p1[0]); /*Chiamata a game_engine_pvp passando il board appena inizializzato ed il nick del player letto in input*/
-
+        mode='0';
+        goto replay;
     }
 
+    if (mode == '3'){
+        return;
+    }
 }
 
 int read_coord(char *in, int *xy, const int *arr,const int * dim ){
     int err=-1;
     int i;
-
     printf("Inserisci le coordinate della pedina (x,y):");
     /*Lettura delle coordinate in formato (lettera,numero)*/
-    scanf("%s",in);
+    scanf(" %s",in);
+    if( strcmp(in, "end")==0 || strcmp(in, "End")==0) return 1;
     for(i=0; i<3; i++){
         if(i==0) {
             /*Controllo se il primo carattere è una lettera valida a<lettera<g*/
@@ -94,7 +114,7 @@ int read_coord(char *in, int *xy, const int *arr,const int * dim ){
     printf("\n");
 
     printf("Inserisci le coordinate della destinazione (x,y):");
-    scanf("%s",in+3);
+    scanf(" %s",in+3);
     for(i=3; i<6; i++){
         if(i==3) {
             if (!(in[i] >= 'a' && in[i] <= 'g')) {
@@ -138,7 +158,6 @@ int read_coord(char *in, int *xy, const int *arr,const int * dim ){
         }
     }
     /*Se arrivo a questo punto la coordinata inserita non è tra quelle effettuabili ritorno quindi la variabile err con valore -1 */
-    printf("\n\nINSERISCI DEI VALORI VALIDI!!!!\n\n");
     return err;
 }
 
@@ -147,9 +166,9 @@ void print_move(int dim,int *arr, char player, char* p1, char* p2) {
     for (i = 0; i < dim; i++) {
         if (i == 0) {/*Se prima iterazione del ciclo stampo intestazione*/
             if (player == '1')
-                printf("Mosse Ditponibili:                 Turno del giocatore %c - %s\n", player, p1);
+                printf("Mosse Disponibili:                 Turno del giocatore %c - %s\nInserisci End per terminare la partita\n", player, p1);
             else
-                printf("Mosse Ditponibili:                 Turno del giocatore %c - %s\n", player, p2);
+                printf("Mosse Disponibili:                 Turno del giocatore %c - %s\nInserisci End per terminare la partita\n", player, p2);
         }
         if (i % 4 == 0 && i != 0) /*Se prima iterazione del ciclo stampo intestazione*/
             printf("\n");
@@ -160,7 +179,7 @@ void print_move(int dim,int *arr, char player, char* p1, char* p2) {
         if(i % 4==0 ) /*Stampa x prima coppia di coordinate*/
             printf("%c", (arr[i+1]+1)+96);
         if(i % 4==1) /*Stampa y prima coppia di coordinate*/
-            printf("%d", (abs(arr[i-1]-7)));
+            printf("%d", abs(arr[i-1]-7));
         if(i % 2==0 && i!=0 && i%4!=0)/*Stampa x seconda coppia di coordinate*/
             printf("%c", (arr[i+1]+1)+96);
         if(i % 2==1 && i!=0 && i%4!=1) /*Stampa y seconda coppia di coordinate*/
@@ -180,7 +199,7 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
     int tp= 0; /*Tipo di mossa*/
     int tp_rec=0; /*Tipo mossa della cpu*/
     char player = '1';
-    char user_in[6];
+    char user_in[7];
     int cpu_mv[4]={0}; /*Coordinate della mossa effettuata dalla CPU*/
     int user_mv[4] = {0};
     int coord_control;
@@ -196,10 +215,14 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
             print_move(dim,arr,player,p1,"");
             reinserisci: /*label per reinserimento coordinate*/
             coord_control= read_coord(&user_in[0], user_mv, arr, &dim); /*Lettura coordinate da tastiera*/
+            if(coord_control==1) { /*Se rilevato inserimento end da tastiera*/
+                break;
+            }
             if(coord_control==-1) { /* se leggi coord_control -1 rileggo coordinate, errore in input*/
-                printf("\n");
+                CLEAR_SCREEN;
+                print_board(board);
+                printf("\nINSERISCI DEI VALORI VALIDI!!!!\n\n");
                 print_move(dim,arr,player,p1,"");
-                printf("\n");
                 goto reinserisci; /*Richiamo alla label per ripetere operazione*/
             }
             /*CLEAR_SCREEN;*/
@@ -251,7 +274,10 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
                     shift(board,cpu_mv[0],cpu_mv[1],cpu_mv[2],cpu_mv[3],tp_rec); /*Eseguo mossa del tipo indicato da tp_rec, con le cordinate presenti in cpu_mv*/
                 v_free(vector); /*Libero il vettore per resettare i valori*/
             }
+            CLEAR_SCREEN;
+
             print_board(board);
+            printf("\nMossa effettuata dalla CPU: %c,%d -> %c,%d\n\n", (arr_rec[1]+1)+96, (abs(arr_rec[0]-7)) ,(arr_rec[3]+1)+96, (abs(arr_rec[2]-7)));
             if(tp_rec!=-1) /*Se ho generato l'array arr_rec, lo libero*/
                 free(arr_rec);
             if(tp!=-1)  /*Se ho generato l'array arr, lo libero*/
@@ -261,44 +287,47 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
 
 /*tp_rec si riferirà sempre alla mossa generatrice del ramo quindi non cambierà mai*/
 
+
 void game_engine_pvp(torre_t board[7][7], char* p1, char* p2) {
     int dim = 0; /*Dimensione array mosse*/
     int * arr; /*Puntatore all'array delle mosse, da liberare (array dinamico)*/
     int tp= 0; /*Tipo di mossa*/
     char player = '1'; /*Indica il player attuale*/
-    char user_in[6]; /*Array contenente coordinate lette da tastiera come stringa*/
+    char user_in[7]; /*Array contenente coordinate lette da tastiera come stringa*/
     int user_mv[4] = {0}; /*Array contenente coordinate lette da tastiera convertite in interi*/
     int coord_control; /*Controllo validità coordinate lette in input*/
     do {
         arr=moves(board,player,&dim,&tp); /*assegno ad arr l'array delle mosse disponibili*/
         if(tp==-1){ /*Se tipo mossa -1 (errore) vince giocatore opposto*/
-            shift_player(player);
+            shift_player(&player);
             printf("Hai vinto giocatore: %c ",player);
-            break; 
+            break;
         }
         print_move(dim,arr,player,p1,p2);
-
         reinserisci: /*label per reinserimento coordinate*/
         coord_control= read_coord(&user_in[0], user_mv, arr, &dim); /*Lettura coordinate da tastiera*/
         if(coord_control==-1) { /* se leggi coord_control -1 rileggo coordinate, errore in input*/
-            printf("\n");
+            CLEAR_SCREEN;
+            print_board(board);
+            printf("\nINSERISCI DEI VALORI VALIDI!!!!\n\n");
             print_move(dim,arr,player,p1,p2);
-            printf("\n");
-            goto reinserisci; /*Richiamo alla label per ripetere operazione*/
+           goto reinserisci; /*Richiamo alla label per ripetere operazione*/
         }
-
+        if(coord_control==1) { /*Se rilevato inserimento end da tastiera*/
+            char *p;
+            CLEAR_SCREEN;
+            if(player=='2') p=p2;
+            else p=p1;
+            printf("Hai perso %s!!!\n", p);
+            SLEEP 3000); /*Timeout dall'esecuzione*/
+            break;
+        }
         CLEAR_SCREEN;
-
         shift(board,user_mv[0], user_mv[1], user_mv[2], user_mv[3], tp); /*Eseguo mossa del tipo indicato da tp, con le cordinate presenti in xy*/
         print_board(board);
-        if(tp!=-1) /*Se tipo mossa -1, array delle mosse non generato, libero la memoria allocata*/
-            free(arr);
         shift_player(&player);
+        if(tp!=-1){ /*Se tipo mossa -1, array delle mosse non generato, libero la memoria allocata*/
+            free(arr);
+        }
     } while (tp!=-1);
 }
-
-
-
-
-
-

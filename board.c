@@ -36,10 +36,8 @@
 
 #define pa_symbol board[x][y].pa[cuboc].symbol
 
-torre_t fill_board(
-        torre_t board[7][7]) { /*Dispone le varie torri, con una sola pedina al loro interno andando a creare la scacchiera iniziale*/
+void fill_board( torre_t board[7][7]) { /*Dispone le varie torri, con una sola pedina al loro interno andando a creare la scacchiera iniziale*/
     int x, y;
-
     for (x = 0; x < 7; x++) {
         for (y = 0;
              y < 7; y++) { /*inizializzazione pedina generica e is_enhanced sempre a 0(non vogliamo valori "sporchi")*/
@@ -82,7 +80,6 @@ torre_t fill_board(
             }
         }
     }
-    return board[6][6];
 }
 
 void print_board(torre_t board[7][7]) {

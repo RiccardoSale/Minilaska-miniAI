@@ -1,5 +1,6 @@
 #include "shift.h"
 #include "board.h"
+#include "stdio.h"
 
 void shift(torre_t board[7][7],int x, int y, int x1, int y1, int  tp) {
     char player = find_player(x, y, board);
@@ -65,10 +66,11 @@ void shift(torre_t board[7][7],int x, int y, int x1, int y1, int  tp) {
     }
 }
 
-void shift_player (char * player){
-    if(*player=='1'){
-        *player='2';
-    }else{
-        *player='1';
+void shift_player (char* player){
+    if(*player=='1') {
+        *player = '2';
+    }else if(*player=='2'){
+        *player = '1';
+    } else {
     }
 }
