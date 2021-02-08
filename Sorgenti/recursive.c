@@ -1,29 +1,28 @@
 #include "recursive.h"
 #include "board.h"
 #include "shift.h"
-#include "stdio.h"
-#include "vector.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void f_ricorsiva(torre_t board[7][7],char player,int value,int depth ,int x ,int y,int x1,int y1,vector_t * vector,int * counter, int tp) {
-    int *arr=NULL; /*Puntatore all'array delle mosse, da liberare (array dinamico)*/
+    int *arr=NULL; /*Puntatore all'array delle mosse da liberare (array dinamico)*/
     int arr_size=0; /*Dimensione dell'array arr*/
     int i;
     int j;
-    torre_t tmp[7][7];
+    torre_t tmp[7][7]={0};
     if(depth==0) {
-        v_push_back(vector,value);
+        v_push_back(vector,value);/*Aggiungo il punteggio del ramo trovato*/
         (*counter)++;
         return;
-    }/*qui aggiungo somma del ramo all array*/
-    shift(board,x,y,x1,y1,tp); /*facciamo lo scambio*/ 
+    }
+    shift(board,x,y,x1,y1,tp); /*Facciamo lo scambio*/
     for(i=0;i<7;i++){/*Copia del board*/
         for(j=0;j<7;j++){
             tmp[i][j]=board[i][j];
         }
     }
     if(arr!=NULL) free(arr); /*Se l'array arr non è vuoto lo libero*/
-    arr=moves(board,player,&arr_size,&tp); /*creiamo l'array per il player attuale*/
+    arr=moves(board,player,&arr_size,&tp); /*Creiamo l'array per il player attuale*/
     if(tp==-1){ /*Non sono state individuate mosse possibili, esco dalla ricorsione(possibile vittoria)*/
         return;
     }

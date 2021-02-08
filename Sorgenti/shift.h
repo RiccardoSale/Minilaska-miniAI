@@ -1,7 +1,3 @@
-#ifndef MINILASKA_DIVISO_VARIOUS_H
-#define MINILASKA_DIVISO_VARIOUS_H
-
-#endif /*MINILASKA_DIVISO_VARIOUS_H*/
 #include "struct.h"
 
 /**

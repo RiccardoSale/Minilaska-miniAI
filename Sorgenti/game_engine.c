@@ -1,6 +1,6 @@
 #include "game_engine.h"
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include "shift.h"
 #include "recursive.h"
 #include "string.h"
@@ -11,13 +11,13 @@
 #include "windows.h"
 #define black
 #define CLEAR_SCREEN system("cls");
-#define SLEEP Sleep(
+#define SLEEP Sleep(4000)
 #endif
 
 #if defined unix || defined __APPLE__ || defined linux
 #include "unistd.h"
 #define CLEAR_SCREEN printf("\033[H\033[J");
-#define SLEEP sleep(
+#define SLEEP sleep(4)
 #define black "\033[48;2;0;0;0m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #endif
@@ -136,25 +136,21 @@ int read_coord(char *in, int *xy, const int *arr,const int * dim ){
         }
     }
 
-    /*asssegno all'array di interi xy le coordinate lette in input come stringa, convertendole nel formato della matrice c*/
+    /*Asssegno all'array di interi xy le coordinate lette in input come stringa, convertendole nel formato della matrice c*/
     /*Casto il carattere char in intero per ottenere il suo codice ascii e sottraggo 96 per ottenere il valore numerico della lettera*/
-    xy[1]=(int)in[0]-96;    /*Esempio (int)in[0]-96 con in[0]=c; c in ascii è 99, sottraendolo a 96 ottengo che c==3 */
+    xy[1]=(int)in[0]-97;    /*Esempio (int)in[0]-97 con in[0]=c; c in ascii è 99, sottraendolo a 96 ottengo che c==2 */
     xy[0]=(int)in[2]-48;    /*Esempio (int)in[2]-48 con in[2]=3; c in ascii è 51, sottraendolo a 48 ottengo che 3==3 */
-    xy[3]=(int)in[3]-96;
+    xy[3]=(int)in[3]-97;
     xy[2]=(int)in[5]-48;
 
     /*Inversione indici matrice, il nostro 0,0 è in alto a sinistra mentre la lettura delle coordinate avviene con 0,0 basso a sinistra*/
     xy[0]=abs(xy[0]-7); /*Esempio: xy[0]=7 -> abs(7-7)=0, l'indice della riga nella matrice originale sarà 0*/
-    xy[1]=xy[1]-1;          /*Esempio: xy[1]=6 -> 6-1=5, l'indice della colonna nella matrice originale sarà 5*/
     xy[2]=abs(xy[2]-7);
-    xy[3]=xy[3]-1;
-
 
     for (i = 0; i < *dim; i += 4) { /*Controllo tutte le quaterne di coordinate*/
         if ((arr[i] == xy[0] && arr[i + 1] == xy[1]) && (arr[i + 2] == xy[2] && arr[i + 3] == xy[3])) {
-            /*se trovo che le coordinate lette corritpondono a quelle di una pedina ritorno 0*/
+            /*Se trovo che le coordinate lette corrispondono a quelle di una pedina ritorno 0*/
             return 0;
-
         }
     }
     /*Se arrivo a questo punto la coordinata inserita non è tra quelle effettuabili ritorno quindi la variabile err con valore -1 */
@@ -170,18 +166,18 @@ void print_move(int dim,int *arr, char player, char* p1, char* p2) {
             else
                 printf("Mosse Disponibili:                 Turno del giocatore %c - %s\nInserisci End per terminare la partita\n", player, p2);
         }
-        if (i % 4 == 0 && i != 0) /*Se prima iterazione del ciclo stampo intestazione*/
+        if (i % 4 == 0 && i != 0)
             printf("\n");
         if (i % 2 != 0) /*Stampa carattere separatore tra x ed y di una coppia di coordinate*/
             printf(",");
         if (i % 2 == 0 && i % 4 != 0) /*Stampa carattere separatore tra le due coppie di coordinate */
             printf("->");
         if(i % 4==0 ) /*Stampa x prima coppia di coordinate*/
-            printf("%c", (arr[i+1]+1)+96);
+            printf("%c", (arr[i+1]+97));
         if(i % 4==1) /*Stampa y prima coppia di coordinate*/
             printf("%d", abs(arr[i-1]-7));
         if(i % 2==0 && i!=0 && i%4!=0)/*Stampa x seconda coppia di coordinate*/
-            printf("%c", (arr[i+1]+1)+96);
+            printf("%c", (arr[i+1]+97));
         if(i % 2==1 && i!=0 && i%4!=1) /*Stampa y seconda coppia di coordinate*/
             printf("%d", abs(arr[i-1]-7));
     }
@@ -208,8 +204,9 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
     torre_t tmp_board[7][7]={0};
     do {
             arr=moves(board,player,&dim,&tp); /*assegno ad arr l'array delle mosse disponibili*/
-            if(tp==-1){ /*Se tipo mossa -1 (errore) vince CPU*/
-                printf("Hai perso %s !!!", p1); /*Tramite puntatore stampo l'intera stringa*/
+            if(tp == -1){ /*Se tipo mossa -1 (errore) vince CPU*/
+                printf("Hai perso %s !!!\n", p1); /*Tramite puntatore stampo l'intera stringa*/
+                SLEEP;
                 break;
             }
             print_move(dim,arr,player,p1,"");
@@ -229,7 +226,8 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
             shift(board,user_mv[0], user_mv[1], user_mv[2], user_mv[3], tp); /*Eseguo mossa del tipo indicato da tp, con le cordinate presenti in user_mv*/
             arr_rec=moves(board,'2',&dim_tmp,&tp_rec); /*Array delle mosse su cui si basa la ricorsione*/
             if (tp_rec == -1) { /*Se cpu non ha mosse disponibili ha vinto il giocatore*/
-                printf("Hai vinto %s !!! ",p1);
+                printf("Hai vinto %s !!! \n",p1);
+                SLEEP;
                 break;
             }
             if(dim_tmp==4){ /*Se la cpu ha solo una mossa disponibile la effettuo immediatamente, non entro in ricorsione*/
@@ -245,9 +243,9 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
                     valore = find_score( tmp_board, arr_rec[i], arr_rec[i + 1], arr_rec[i + 2], arr_rec[i + 3]); /*Valore prende il punteggio relativo alla mossa di arr_rec selezionata in base all'indice i*/
                     /*Chiamata ricorsiva relativa alla mossa di arr_rec selezionata in base all'indice i*/
                     f_ricorsiva( tmp_board, '1', valore, 5, arr_rec[i], arr_rec[i + 1], arr_rec[i + 2], arr_rec[i + 3], vector, &counterglobal, tp_rec);
-                    /*La prima mossa di arr_rec non determina la vittoria (la prima mossa di arr_rec viene eseguita all'interno della ricorsione, 
+                    /*La prima mossa di arr_rec non determina la vittoria (la prima mossa di arr_rec viene eseguita all'interno della ricorsione,
                      *(se determina vittoria, non inserisco valore ed esco subito -> counterglobal=0)*/
-                    if(counterglobal>0) { 
+                    if(counterglobal>0) {
                         if (i == 0) valore_max = v_get(vector, 0); /*Se prima iterazione ramo di valore max = il primo elemento del vettore*/
                         for (j = 0; j < counterglobal; ++j) { /*Scorriamo tutti i rami trovati*/
                             if (valore_max < v_get(vector, j)) { /*Se il ramo j-esimo è maggiore rispetto al valore_max aggiorniamo il valore di valore_max con il ramo attuale*/
@@ -264,7 +262,9 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
                         cpu_mv[1] = arr_rec[i + 1];
                         cpu_mv[2] = arr_rec[i + 2];
                         cpu_mv[3] = arr_rec[i + 3];
-                        tp_rec=2; /*Tp_rec modificato manualmente perché ricorsione ha riconosciuto vittoria (tp_rec sarebbe -1)*/
+                        if((abs(cpu_mv[0]-cpu_mv[2]))==1) tp_rec=1;
+                        else tp_rec=2;
+                         /*Tp_rec modificato manualmente perché ricorsione ha riconosciuto vittoria (tp_rec sarebbe -1)*/
                         shift(board,cpu_mv[0],cpu_mv[1],cpu_mv[2],cpu_mv[3],tp_rec);/*Effettuiamo subito mossa*/
                         tp_rec=-1; /*Reimpostiamo te_rec -1 perché non abbiamo generato arr_rec*/
                     }
@@ -275,9 +275,9 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
                 v_free(vector); /*Libero il vettore per resettare i valori*/
             }
             CLEAR_SCREEN;
-
             print_board(board);
-            printf("\nMossa effettuata dalla CPU: %c,%d -> %c,%d\n\n", (arr_rec[1]+1)+96, (abs(arr_rec[0]-7)) ,(arr_rec[3]+1)+96, (abs(arr_rec[2]-7)));
+            if (dim_tmp==4) printf("\nMossa effettuata dalla CPU: %c,%d -> %c,%d\n\n", (arr_rec[1])+97, (abs(arr_rec[0]-7)) ,(arr_rec[3])+97, (abs(arr_rec[2]-7)));
+            else  printf("\nMossa effettuata dalla CPU: %c,%d -> %c,%d\n\n", (cpu_mv[1])+97, (abs(cpu_mv[0]-7)) ,(cpu_mv[3])+97, (abs(cpu_mv[2]-7)));
             if(tp_rec!=-1) /*Se ho generato l'array arr_rec, lo libero*/
                 free(arr_rec);
             if(tp!=-1)  /*Se ho generato l'array arr, lo libero*/
@@ -286,7 +286,6 @@ void game_engine_cpu(torre_t board[7][7], char* p1) {
 }
 
 /*tp_rec si riferirà sempre alla mossa generatrice del ramo quindi non cambierà mai*/
-
 
 void game_engine_pvp(torre_t board[7][7], char* p1, char* p2) {
     int dim = 0; /*Dimensione array mosse*/
@@ -299,8 +298,12 @@ void game_engine_pvp(torre_t board[7][7], char* p1, char* p2) {
     do {
         arr=moves(board,player,&dim,&tp); /*assegno ad arr l'array delle mosse disponibili*/
         if(tp==-1){ /*Se tipo mossa -1 (errore) vince giocatore opposto*/
+            char *p;
             shift_player(&player);
-            printf("Hai vinto giocatore: %c ",player);
+            if(player=='2') p=p2;
+            else p=p1;
+            printf("Hai vinto giocatore: %s \n",p);
+            SLEEP;
             break;
         }
         print_move(dim,arr,player,p1,p2);
@@ -309,7 +312,7 @@ void game_engine_pvp(torre_t board[7][7], char* p1, char* p2) {
         if(coord_control==-1) { /* se leggi coord_control -1 rileggo coordinate, errore in input*/
             CLEAR_SCREEN;
             print_board(board);
-            printf("\nINSERISCI DEI VALORI VALIDI!!!!\n\n");
+            printf("\nINSERISCI DEI VALORI VALIDI!!!!\n");
             print_move(dim,arr,player,p1,p2);
            goto reinserisci; /*Richiamo alla label per ripetere operazione*/
         }
@@ -319,7 +322,7 @@ void game_engine_pvp(torre_t board[7][7], char* p1, char* p2) {
             if(player=='2') p=p2;
             else p=p1;
             printf("Hai perso %s!!!\n", p);
-            SLEEP 3000); /*Timeout dall'esecuzione*/
+            SLEEP; /*Timeout dall'esecuzione*/
             break;
         }
         CLEAR_SCREEN;

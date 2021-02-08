@@ -1,10 +1,8 @@
 #include "game_engine.h"
-#include "stdio.h"
-
 /**
 * \file main.c
 * \mainpage Descrizione generale del progetto
-* \authors Riccardo Sale - Gabriele Nicoletti.\n
+* \authors Riccardo Sale - Gabriele Nicoletti -A wambo Lionel\n
 * \subsubsection Il Regolamento del gioco
 *  Implementazione di un gioco chiamato MiniLaska  variante del gioco originale http://www.lasca.org/.\n
 *  Rispetto al gioco originale miniLaska prevede le seguenti limitazioni:\n

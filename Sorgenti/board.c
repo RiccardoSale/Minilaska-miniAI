@@ -1,6 +1,6 @@
 #include "board.h"
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 #ifdef _WIN32
@@ -39,8 +39,7 @@
 void fill_board( torre_t board[7][7]) { /*Dispone le varie torri, con una sola pedina al loro interno andando a creare la scacchiera iniziale*/
     int x, y;
     for (x = 0; x < 7; x++) {
-        for (y = 0;
-             y < 7; y++) { /*inizializzazione pedina generica e is_enhanced sempre a 0(non vogliamo valori "sporchi")*/
+        for (y = 0; y < 7; y++) { /*inizializzazione pedina generica e is_enhanced sempre a 0(non vogliamo valori "sporchi")*/
             board[x][y].pa[0].is_enhanced = 0;
             board[x][y].pa[1].is_enhanced = 0;
             board[x][y].pa[2].is_enhanced = 0;
@@ -59,8 +58,7 @@ void fill_board( torre_t board[7][7]) { /*Dispone le varie torri, con una sola p
                     board[x][y].pa[2].symbol = ' ';
                 }
             } else {
-                if (x > 3 || x <
-                             3) { /* stesso ragionamento ma controllo se indice colonna  dispari perchè mi trovo in riga dispari*/
+                if (x > 3 || x < 3) { /* stesso ragionamento ma controllo se indice colonna  dispari perchè mi trovo in riga dispari*/
                     if (x > 3 && y % 2 != 0) {
                         board[x][y].pa[0].symbol = '1';
                     } else if (x < 3 && y % 2 != 0) {
@@ -95,41 +93,32 @@ void print_board(torre_t board[7][7]) {
                     if (board[x][y].pa[cuboc].is_enhanced == 1) { /* se is_enhanced =1 stampo pedina potenziata*/
                             if (pa_symbol == '2') { /* se symbol della pedina ='2' stampo pedina con colore rossa*/
                                 WIN_COLOR_RED;
-                                printf( ANSI_COLOR_RED "X%c%c%cX" ANSI_COLOR_RESET, pa_symbol, pa_symbol,
-                                       pa_symbol);
+                                printf( ANSI_COLOR_RED "X%c%c%cX" ANSI_COLOR_RESET, pa_symbol, pa_symbol,pa_symbol);
                                 WIN_COLOR_RESET;
                                 printf(black"|");
 
                             }
                             if (pa_symbol == '1') { /* se symbol della pedina ='1' stampo pedina con colore blu*/
                                 WIN_COLOR_BLUE;
-                                printf( ANSI_COLOR_BLUE "X%c%c%cX" ANSI_COLOR_RESET,
-                                       pa_symbol,
-                                       pa_symbol, pa_symbol);
+                                printf( ANSI_COLOR_BLUE "X%c%c%cX" ANSI_COLOR_RESET,pa_symbol,pa_symbol, pa_symbol);
                                 WIN_COLOR_RESET;
                                 printf(black"|");
                             }
-                    } else {/*se pedina non potenziata stampo le pedine con la stessa logica di prima ma senza contorno =X*/
+                    } else {/*se pedina non potenziata stampo le pedine con la stessa logica di prima ma senza contorno*/
                             if (pa_symbol == '2') {
                                 WIN_COLOR_RED;
-                                printf(ANSI_COLOR_RED "#%c%c%c#" ANSI_COLOR_RESET,
-                                       pa_symbol, pa_symbol,
-                                       pa_symbol);
+                                printf(ANSI_COLOR_RED "#%c%c%c#" ANSI_COLOR_RESET,pa_symbol, pa_symbol,pa_symbol);
                                 WIN_COLOR_RESET;
                                 printf(black"|");
 
                             }else if (pa_symbol == '1') {
                                 WIN_COLOR_BLUE;
-                                printf(ANSI_COLOR_BLUE "#%c%c%c#" ANSI_COLOR_RESET,
-                                       pa_symbol, pa_symbol,
-                                       pa_symbol);
+                                printf(ANSI_COLOR_BLUE "#%c%c%c#" ANSI_COLOR_RESET,pa_symbol, pa_symbol,pa_symbol);
                                 WIN_COLOR_RESET;
                                 printf(black"|");
                             }
-                            else { /* se pedina ha is_enhanced =0 e symbol != '1' && !='2' allora sarà una pedina vuota bianca*/
-                            printf("#%c%c%c#|",
-                                   pa_symbol, pa_symbol,
-                                   pa_symbol);
+                            else { /* se pedina ha is_enhanced = 0 e symbol != '1' && !='2' allora sarà una pedina vuota bianca*/
+                            printf("#%c%c%c#|",pa_symbol, pa_symbol,pa_symbol);
                         }
                     }
                 } else /* stampo pedina vuota nera*/
@@ -169,7 +158,7 @@ int *moves(torre_t board[7][7], char player, int *size, int *type_moves) {
         for (j = 0; j < 7; j++) {
             if (find_player(i, j, board) == player) {/* controllo se la torre in cui mi trovo corrisponde al player per cui devo cercare le mosse*/
                 is_enhanced = find_enhanced(i, j, board); /* controllo se la pedina del possessore della torre è potenziata*/
-                if (player == '2' || is_enhanced == 1) {/* se player è ==2 o is_enhanced pedina ==1 */
+                if (player == '2' || is_enhanced == 1) {/* se player è == 2 o is_enhanced pedina == 1 */
                     if ((i + 1 < 7 && j - 1 >= 0) && find_player(i + 1, j - 1, board) != player &&
                         find_player(i + 1, j - 1, board) != '#') {/*diagonale basso sinistra (controllo pedina adiacente alle coordinate i-> riga,j->colonna)*/
                         if ((i + 2 < 7 && j - 2 >= 0) && find_player(i + 2, j - 2, board) == '#')/*diagonale sinistra 2*/
@@ -221,7 +210,7 @@ int *moves(torre_t board[7][7], char player, int *size, int *type_moves) {
                 }
             }
         }
-        /*se la dimensione è ancora ==0 allora non ci sono mosse disponibili*/
+        /*se la dimensione è ancora == 0 allora non ci sono mosse disponibili*/
         if (dim == 0) {
             *type_moves = -1; /* quindi effettuo la return di type_moves senza andare a creare un nuovo array*/
             return type_moves;

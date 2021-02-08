@@ -1,6 +1,3 @@
-#ifndef MINILASKA_DIVISO_STRUCT_H
-#define MINILASKA_DIVISO_STRUCT_H
-#endif /*MINILASKA_DIVISO_STRUCT_H*/
 #pragma once
 /**
  * \file struct.h

@@ -1,9 +1,8 @@
 #include "struct.h"
 #include "find.h"
-
 /**
  * \file board.h
- * \brief Funzioni che eseguono operazioni sul board di gioco.\n
+ * \brief Funzioni che eseguono operazioni sul board di gioco\n
  */
 
 /**
@@ -18,9 +17,7 @@ void fill_board(torre_t board[7][7]);
 
 /**
  * \details     Esegue la stampa del board dato in input.
- *
  * \param[in]   board    board di gioco
- *
  */
 void print_board(torre_t board[7][7]);
 
@@ -31,8 +28,8 @@ void print_board(torre_t board[7][7]);
  *  \note               Se *typemoves è stato assegnato a -1 ritorniamo quest'ultimo al posto del puntatore all'array.\n
  *  \note               La free del puntatore va effettuata quando a type_moves vengono assegnati i valori 1 o 2.
  *  \param[in]          board          Campo di gioco
- *  \param[in]          player         Giocatore per cui devo controllare le mosse disponibili
- *  \param[in,out]      size           Puntatore int a cui assegnamo la dimensione dell'array di mosse
+ *  \param[in]          player        Giocatore per cui devo controllare le mosse disponibili
+ *  \param[in,out]      size             Puntatore int a cui assegnamo la dimensione dell'array di mosse
  *  \param[in,out]      type_moves     Puntatore int a cui viene assegnato il tipo di mosse presenti nell'array
  *
  *  \return Puntatore all'array dinamico di tipo int che contiene le mosse trovate.\n

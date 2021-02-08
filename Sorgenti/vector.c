@@ -1,9 +1,7 @@
-
 #include <stdlib.h>
 #include <stdio.h>
- #include <string.h>
- #include "vector.h"
-#pragma once
+#include <string.h>
+#include "vector.h"
 
 const size_t V_MIN_CAPACITY = 16;
 
@@ -16,7 +14,7 @@ const size_t V_MIN_CAPACITY = 16;
          printf ("Error in memory allocation\n");
          exit(EXIT_FAILURE);
          }
-     return v; /*ritorno il vettore creato*/
+     return v; /*Ritorno il vettore creato*/
  }
 
 void _v_check_index(const vector_t* v, size_t index) {
@@ -33,7 +31,7 @@ void _v_check_index(const vector_t* v, size_t index) {
  }
 
 void _v_check_extend(vector_t *v) {
-    if (v->size == v->capacity) { /*verifico se seize==capacity*/
+    if (v->size == v->capacity) { /*Verifico se size==capacity*/
         vdata_t *new_data = (vdata_t *) realloc(v->data, v->capacity * 2 * sizeof(vdata_t));/*eseguo riallocazione vettore, doppia capacity*/
         if (!new_data) { /*se realloc fallita, errore*/
             v_free(v);
@@ -46,7 +44,7 @@ void _v_check_extend(vector_t *v) {
 }
 
  void v_push_back(vector_t *v, vdata_t value){
-     _v_check_extend(v);/**/
+     _v_check_extend(v);
      v->data[v->size++] = value;/*Inserimento in coda*/
  }    
 

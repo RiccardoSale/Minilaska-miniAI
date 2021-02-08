@@ -1,6 +1,4 @@
-#ifndef _DVECTOR_H_
-#define _DVECTOR_H_
-#include "stdio.h"
+#include <stdio.h>
 
 typedef int vdata_t;
 
@@ -69,4 +67,3 @@ void _v_check_extend(vector_t *v);
  */
 void v_push_back(vector_t *v, vdata_t value);
 
-#endif

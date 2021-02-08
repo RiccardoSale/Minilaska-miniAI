@@ -1,5 +1,5 @@
 #include "find.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
 char find_player(int x, int y, torre_t board[7][7]) {
     char player;
@@ -21,7 +21,7 @@ char find_player(int x, int y, torre_t board[7][7]) {
 }
 
 
-int find_t_height(int x, int y, torre_t board[7][7]) { /*ricorda return error da pensare TODO*/
+int find_t_height(int x, int y, torre_t board[7][7]) { 
     int height = 0;
     int i ;
     /*scorro dall'alto verso il basso la torre e cerco il primo carattere diverso da '#' assegno quindi l altezza = all indice i*/
@@ -124,7 +124,7 @@ int find_score(torre_t board[7][7],int x, int y, int x1, int y1) {
     int componentiamiche;  /*pedine amiche in xmid y mezzo (sotto controllo del nemico )*/
     if (((abs(x - x1) == 1) && (abs(y - y1) == 1))){ /*valutazione mosse da 1*/
         /*se muoviamo uno dei due triangolo centriali punteggio 0 */
-        if (x == 6 && y == 2 || x == 6 && y == 4 || x == 5 && y == 3 || x == 0 && y == 2 || x == 0 && y == 4 ||x == 1 && y == 3) {
+        if ( (x == 6 && y == 2) || (x == 6 && y == 4) || (x == 5 && y == 3) || (x == 0 && y == 2) || (x == 0 && y == 4) || (x == 1 && y == 3) ) {
             return score = 0;
         }
         if ((abs(3 - x) - abs(3 - x1)) < 0) { /*se la mossa si allontana dal centro valore 1 - se si allontana valore 0*/
@@ -139,7 +139,7 @@ int find_score(torre_t board[7][7],int x, int y, int x1, int y1) {
         find_mid(&xmid,&ymid,x,y,x1,y1);
         find_t_enemy_composition(xmid,ymid,&componentiamiche,&componentinemiche,board); /*trovo la composizione della pedina da mangiare*/
         /*se muoviamo uno dei due triangolo centriali punteggio 0 */
-        if (x == 6 && y == 2 || x == 6 && y == 4 || x == 5 && y == 3 || x == 0 && y == 2 || x == 0 && y == 4 ||x == 1 && y == 3) {
+        if ((x == 6 && y == 2) || (x == 6 && y == 4) || (x == 5 && y == 3) || (x == 0 && y == 2) || (x == 0 && y == 4) || (x == 1 && y == 3) ) {
             return score = 0;
         }
         if(altezza_pedina==0){
@@ -200,6 +200,7 @@ int find_score(torre_t board[7][7],int x, int y, int x1, int y1) {
             }
         }
     }
+    return -1;
 }
 
 

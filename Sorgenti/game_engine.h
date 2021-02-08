@@ -1,7 +1,3 @@
-#ifndef MINILASKA_DIVISO_GAME_ENGINE_H
-#define MINILASKA_DIVISO_GAME_ENGINE_H
-#endif /*MINILASKA_DIVISO_GAME_ENGINE_H*/
-
 #include "board.h"
 #include "find.h"
 /**
