@@ -16,7 +16,7 @@
       </ul>
     </li>
     <li>
-        <a href="#feature">Feature</a></li>
+        <a href="#feature">Feature</a>
     <li>
   </ol>
 </details>
@@ -26,7 +26,7 @@ Command-line based Lasca game written in ANSI C "cross-platform" - Linux - Windo
 Lasca (also called Laska or Laskers) is a draughts (or checkers) variant and is played in a 7x7 chess board.
 ### Built With
 [ANSI C]
-##Feature
+## Feature
 AI bot powered by Minimax algorithm with a set of custom rules based on most used strategy of the game.[RULE](http://www.lasca.org/)
 1 vs 1 game mode.
 "Cross platform".
