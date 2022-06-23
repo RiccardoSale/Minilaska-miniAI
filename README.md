@@ -18,7 +18,7 @@
 Command-line based Lasca game written in ANSI C "cross-platform"  (Linux - Windows - MacOS) thanks to C preprocessor.<br />
 Lasca (also called Laska or Laskers) is a draughts (or checkers) variant and is played in a 7x7 chess board.<br />
 ### Built With
-- [ANSI C]
+- ANSI C
 - [Doxygen](https://doxygen.nl/)
 ## Feature
 - AI bot powered by Minimax algorithm with a set of custom rules based on most used strategy of the game -> [RULE](http://www.lasca.org/). <br />
