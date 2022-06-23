@@ -1,3 +1,0 @@
-I sorgenti sono compilabili lanciando il comando make nella cartella Sorgenti -> linux / mac !
-Per windows script bash nella cartella compilatore windows.
-La documentazione principale è la versione html ! 
