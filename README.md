@@ -7,7 +7,9 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
-      <a href="#feature">Feature</a>
+      </ul>
+        <li><a href="#feature">Feature</a></li>
+      </ul>
     </li>
   </ol>
 </details>
