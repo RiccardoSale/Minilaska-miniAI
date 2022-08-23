@@ -1,3 +1,4 @@
+<!--
 <div id="top"></div>
 <details>
   <summary>Table of Contents</summary>
@@ -13,6 +14,7 @@
     </li>
   </ol>
 </details>
+--!>
 
 ## About The Project
 Command-line based Lasca game written in ANSI C "cross-platform"  (Linux - Windows - MacOS) thanks to C preprocessor.<br />
